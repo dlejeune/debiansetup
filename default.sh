@@ -30,3 +30,21 @@ if ! command -v git > /dev/null;
   else
     echo "${CLEAR_LINE}${GREEN}Git is already installed.${NO_COLOR}\n"
 fi
+
+if ! command -v wget > /dev/null;
+  then
+    echo "${CLEAR_LINE}${RED}Wget not installed. Installing.${NO_COLOR}\n"
+    sudo apt install wget
+  else
+    echo "${CLEAR_LINE}${GREEN}Wget is already installed.${NO_COLOR}\n"
+fi
+
+
+if ! command -v nvm > /dev/null;
+  then
+    echo "${CLEAR_LINE}${RED}Nvm not installed. Installing with wget.${NO_COLOR}\n"
+    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+        
+  else
+    echo "${CLEAR_LINE}${GREEN}Nvm is already installed.${NO_COLOR}\n"
+fi
