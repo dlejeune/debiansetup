@@ -6,6 +6,7 @@ YELLOW='\033[0;33m'
 NO_COLOR='\033[0m'
 CLEAR_LINE='\r\033[K'
 
+cd ~
 
 if ! command -v python3 > /dev/null;
   then
@@ -44,7 +45,12 @@ if ! command -v nvm > /dev/null;
   then
     echo "${CLEAR_LINE}${RED}Nvm not installed. Installing with wget.${NO_COLOR}\n"
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
-        
+    
+    echo "${CLEAR_LINE}${GREEN}Nvm is installed. Configuring${NO_COLOR}\n"
+    . ~/.nvm.sh 
+    nvm install node
+    nvm use node
+    
   else
     echo "${CLEAR_LINE}${GREEN}Nvm is already installed.${NO_COLOR}\n"
 fi
